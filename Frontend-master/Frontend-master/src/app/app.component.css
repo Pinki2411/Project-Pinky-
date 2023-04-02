@@ -1,0 +1,14 @@
+.container-fluid{
+    border: 1px gray solid;
+     padding:15px;
+      background-color: aqua;
+       background-image: -moz-element();
+    }
+    .background-body{
+         background-image: url('../assets/Image/plane2.jpg');
+          background-size: cover;
+           background-repeat: no-repeat;
+        }
+        .navbar-brand{
+             font-style: italic;
+            }

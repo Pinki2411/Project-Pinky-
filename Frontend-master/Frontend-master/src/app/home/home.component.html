@@ -1,0 +1,96 @@
+
+
+<div id="login-bg" class="container-fluid" *ngIf="!SearchButton">
+  
+  <div id="bgcolor">
+    <h2 id="title">Book Domestic Flight Tickets</h2>
+  </div>
+  <div id ="image" >
+    <img src=".\assets\Image\PngItem_766522.png">
+  </div>
+ </div>
+   <div  class=" form-container " *ngIf="!SearchButton">
+      <form #Form="ngForm" class="d-flex"(ngSubmit)="loadflight()" autocomplete="off" >
+        <div class="form-group" style="margin-left: 10px;" class="d-flex" >
+          <label for="option">Departure:</label>
+          <select name="option" [(ngModel)]="to" class="form-control my-select" >
+            <option value="" disabled selected >To</option>
+            <option *ngFor="let option of To" [value]="option">{{ option }}</option>
+          </select>
+        </div>
+       
+        <span class="sc-lbhJGD gtAvCE" style="margin: 5px;" (click)="swapValues()">
+          <svg width="20" height="15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.11 6.739a.842.842 0 0 1-.842-.842V4.844a.21.21 0 0 0-.21-.211H4.543a1.264 1.264 0 1 1 0-2.527h8.515a.21.21 0 0 0 .21-.21V.841A.843.843 0 0 1 14.544.12l4.212 2.528a.842.842 0 0 1 0 1.444L14.544 6.62a.843.843 0 0 1-.433.12ZM.409 10.26l4.212-2.527a.842.842 0 0 1 1.276.723v1.053c0 .116.095.21.21.21h8.516a1.264 1.264 0 1 1 0 2.528H6.108a.21.21 0 0 0-.21.21v1.053a.842.842 0 0 1-1.277.722L.409 11.705a.842.842 0 0 1 0-1.445Z" fill="#2276E3"></path>
+          </svg>
+       </span>
+
+      <div class="form-group" style="margin-left: 10px;" class="d-flex">
+        <label for="option">Arrival:</label>
+        <select name="option" [(ngModel)]="from" class="form-control my-select" >
+          <option value="" disabled selected >From</option>
+          <option *ngFor="let option of From" [value]="option">{{ option }}</option>
+        </select>
+      </div>
+     <div  class="form-group" style="margin-left: 10px;" >
+     <input  name="date"
+     [(ngModel)]="date"
+     type="date"
+     placeholder="Date"
+     min="2023-03-01" max="2023-03-31" >
+  </div>
+ 
+  <div style="margin-left: 10px;">
+     <button class="btn btn-primary btn-info btn-lg"  type="submit">Search</button>
+     </div>
+</form>
+</div>
+  
+
+        
+   <div  class="image-container" *ngIf="SearchButton"  [hidden]="hideElement"  >
+      <img src=".\assets\Image\PngItem_767403.png" width="1000px" hight="1000px">
+    
+    <div  class="row justify-content-center">
+      
+        <div  class="table-container">
+            
+                <h1>Avaiable Flights</h1>
+            <hr>
+           <br>
+            <table class="table table-condensed my-table">  
+                <thead>   
+                  <tr>  
+                   <th>Destination</th>  
+                   <th>From</th>  
+                   <th>Name</th>  
+                   <th>Fare</th>   
+                   <th>Date</th> 
+                   <th></th>
+                 </tr>  
+               </thead>  
+               <tbody>  
+                 <tr class="success hover-row" *ngFor="let item of flights " >  
+                   <td> {{item.to}}</td>  
+                   <td>{{item.from}}</td>  
+                   <td>{{item.name}}</td>  
+                   <td>{{item.fare}}</td> 
+                   <td >{{item.dateAndTime}}</td>
+                   <td><button  class="btn btn-primary btn-info btn-lg" (click)="getflight(item.flight_Id)">Book</button></td> 
+                 </tr>
+               </tbody>
+            </table>
+           
+        </div>
+    </div>
+</div>
+
+<div *ngIf="BookButton">
+    <app-addbooking [flights]="res"></app-addbooking>
+    </div>  
+  
+
+
+
+
+    

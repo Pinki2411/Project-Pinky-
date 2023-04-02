@@ -1,0 +1,27 @@
+<div  class="container image-container" style="margin-top: 100px;">
+    <img src=".\assets\Image\PngItem_531581.png" width="1000px" hight="1000px">
+    <div class="row justify-content-center">
+        <div class="table-container">
+            <div>
+                <h1>Thank you for checking in for your flight!</h1>
+            <hr>
+            <table class="table table-condensed mytable">  
+                <thead>   
+                    <tr> 
+                    <th>CheckIn Id:</th> 
+                    <th>Seat No:</th>
+                     
+                 </tr>  
+               </thead>  
+               <tbody >  
+                 <tr class="success" *ngFor="let item of data ">  
+                    <td>{{item.check_Id}}</td>
+                    <td>{{item.seat_Allocation}}</td> 
+                 </tr>
+               </tbody>
+            </table>
+            <h2>Have a pleasant flight!</h2>
+            </div> 
+        </div>
+    </div>
+</div>

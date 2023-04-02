@@ -1,0 +1,54 @@
+<div class="Container parent image-container" >
+  <form *ngIf="!show" #Form="ngForm" (ngSubmit)="SearchR()" autocomplete="off">
+    <img src=".\assets\Image\PngItem_531581.png" width="1000px" hight="1000px">
+    <div class="form-container">
+    <div class="mb-1 ">
+      <input
+        name="to"
+        [(ngModel)]="Id"
+        class="form-control narrow-input"
+        type="number"
+        placeholder="Enter Reference Number">
+    </div>
+    <br>
+    <button class="btn btn-primary btn-info btn-lg" type="submit">Search</button>
+  </div>
+</form>
+</div>
+
+<div class="image-container" *ngIf="show" class="container" >
+  <img src=".\assets\Image\PngItem_531581.png" width="1000px" hight="1000px">
+    <div class="row justify-content-center">
+            <div class="table-container">
+                <h1>Your Current Flight</h1>
+            <hr>
+            <table class="table table-condensed mytable">  
+                <thead>   
+                    <tr> 
+                    <th>Passenger Name</th> 
+                    <th>Phone Number</th>
+                   <th>Destination</th>  
+                   <th>From</th>  
+                   <th>Date</th>
+                   <th>Flight Name</th>  
+                   <th>Price</th>   
+                 </tr>  
+               </thead>  
+               <tbody>  
+                 <tr class="success" *ngFor="let item of data ">  
+                    <td>{{item.passenger_Name}}</td>
+                    <td>{{item.phoneNumber}}</td>
+                   <td> {{item.to}}</td>  
+                   <td>{{item.from}}</td>  
+                   <td>{{item.dateAndTime}}</td>
+                   <td>{{item.name}}</td>  
+                   <td>{{item.fare}}</td> 
+                   <td><button  class="btn btn-primary btn-info btn-lg" (click)="callFunction(item.booking_id)" routerLink="/CheckIn">CheckIN</button></td> 
+                 </tr>
+                 <!-- routerLink="Booking/Booking" -->
+                 <!-- (click)="checkin.CheckIN(item.flightId)" -->
+               </tbody>
+            </table>
+        </div>
+    </div>
+</div>

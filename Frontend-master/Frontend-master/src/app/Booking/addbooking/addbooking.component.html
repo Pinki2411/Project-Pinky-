@@ -1,0 +1,113 @@
+<div *ngIf="!IsshowReferenceNo" class="tablestyle">
+<h2 class="text-center text-primary TEXT">Flight Details</h2>
+<table class="table table-condensed">  
+   <thead>   
+       <tr> 
+         <th>Destination</th> 
+         <th>From</th>  
+         <th>Name</th>    
+         <th>Price</th>  
+         <th>Date</th>
+      
+      <!-- *ngFor="let item of flights -->
+        </tr>  
+  </thead>  
+  <tbody>  
+    <tr class="success" >  
+      <td> {{To}}</td>  
+      <td>{{From}}</td>  
+      <td>{{Name}}</td>  
+      <td>{{Fare}}</td>
+      <td>{{Date}}</td>
+      </tr>
+  </tbody>
+  </table>
+<form #regiterform="ngForm" (ngSubmit)=" Booking()"autocomplete="off">
+    <h2 class="text-center text-primary">Booking Details</h2>
+    <hr>
+    <div class="mb-3">
+        <input type="text"
+        class="form-control"
+        name="full"
+        [(ngModel)]="model.passenger_Name "
+        placeholder="Passenger_Name ">
+
+    </div>
+    
+ <div class="mb-3">
+    <input type ="text"
+    class ="form-control"
+    name="email"
+    [(ngModel)]="model.city"
+    placeholder="city">
+
+ </div>
+   
+ <div class="mb-3">
+    <input type ="text"
+    class ="form-control"
+    name="Country "
+    [(ngModel)]="model.country "
+    placeholder="Country ">
+ </div>
+ <div class="mb-3">
+   <input type ="text"
+   class ="form-control"
+   name="Passport_No"
+   [(ngModel)]="model.passport_No"
+   placeholder="Passport_No">
+</div>
+<div class="mb-3">
+    <input type ="text"
+    class ="form-control"
+    name="PhoneNumber"
+    [(ngModel)]="model.phoneNumber"
+    placeholder="PhoneNumber">
+ </div>
+ <div class="mb-3">
+    <input type ="text"
+    class ="form-control"
+    name="Gender"
+    [(ngModel)]="model.gender"
+    placeholder="Gender">
+ </div>
+ <div class="mb-3">
+    <input type ="number"
+    class ="form-control"
+    name="Age"
+    [(ngModel)]="model.age"
+    placeholder="Age">
+ </div>
+ <div class="mb-3">
+    <input type ="text"
+    class ="form-control"
+    name="Email"
+    [(ngModel)]="model.email"
+    placeholder="Email">
+ </div>
+ <!-- <div class="mb-3" [hidden]="hideElement">
+   <input type ="number"
+   class ="form-control"
+   name="Id"
+   [(ngModel)]="model.flight_Id"
+   placeholder="id"[formControl]="myControl">
+</div> -->
+ <div class="text-center">
+    <button class="btn btn-success me-2" type="submit">Book</button>
+    <button class="btn btn-default" type="button">Cancel</button>
+ </div>
+</form>
+ </div>
+ <div id="show"*ngIf=" IsshowReferenceNo">
+<table class="table table-condensed"> 
+<tbody>
+      <tr>
+         <th>Booking Confirmed With Reference Number:</th>
+   
+   
+         <td> {{data}}</td>  
+      </tr>
+   </tbody>
+   </table>
+ </div>
+ 

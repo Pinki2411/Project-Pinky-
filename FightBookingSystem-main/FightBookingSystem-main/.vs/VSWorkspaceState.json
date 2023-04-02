@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\FlightBookingSystemFolder",
+    "\\FlightBookingSystemFolder\\Controllers",
+    "\\FlightBookingSystemFolder\\DataAccessLayer",
+    "\\FlightBookingSystemFolder\\DTO"
+  ],
+  "SelectedNode": "\\FlightBookingSystemFolder\\appsettings.json",
+  "PreviewInSolutionExplorer": false
+}
